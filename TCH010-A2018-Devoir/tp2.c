@@ -1,3 +1,7 @@
+// Fait par Dat Quang Nguyen et Sara Nguyen
+// Fait le 9 novembre 2018
+// Jeu de Nim
+
 #include <stdlib.h>
 #include "nim_ihm.h"
 #include "m_distributions.h"
