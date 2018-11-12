@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fonction.c" />
     <ClCompile Include="m_distributions.c" />
     <ClCompile Include="nim_ihm.c" />
     <ClCompile Include="tp2.c" />

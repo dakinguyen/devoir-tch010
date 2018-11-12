@@ -79,7 +79,7 @@ Définition des fonctions publiques et privées
 ***********************************************/
 
 //Initialise la console en mode ncurses, dessine les 3 zones et définit le nombre de lignes
-//et colonnes du plateua de jeu.
+//et colonnes du plateau de jeu.
 int ihm_init_ecran(int lignes, int colonnes)
 {
 	WINDOW *fenetre_entete; //Fenetre dans laquelle on affiche le titre du jeu.
