@@ -23,7 +23,7 @@ IO_LIRE_ENTIER
 Paramètres: 
 Retour:
 */
-int io_lire_entier(int min, int max);
+int lire_entier(int min, int max);
 
 /*
 IO_AFFICHER_MENU
@@ -31,7 +31,7 @@ IO_AFFICHER_MENU
 Paramètres: Aucun
 Retour:
 */
-int io_afficher_menu(void);
+int afficher_menu(void);
 
 /*
 IO_PLATEAU_AFFICHER
@@ -39,4 +39,4 @@ IO_PLATEAU_AFFICHER
 Paramètres:
 Retour: Aucun
 */
-void io_plateau_afficher(int plateau[], int colonnes);
+void plateau_afficher(int plateau[], int colonnes);

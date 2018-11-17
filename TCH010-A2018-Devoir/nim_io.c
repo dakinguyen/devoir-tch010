@@ -4,16 +4,17 @@
 
 #include "nim.h"
 #include "nim_ihm.h"
+#include "nim_io.h"
 
 #define FACILE 1 // choix pour faire une partie facile
 #define NORMALE 2 // choix pour faire une partie normale
 #define DIFFICILE 3 // choix pour faire une partie difficile
 #define QUITTER 4 // choix pour quitter le jeu
 
-int io_lire_entier(int min, int max);
+
 
 // verifier la valeur entree par l'utilisateur
-int io_lire_entier(int min, int max) {
+int lire_entier(int min, int max) {
 
 	int valeur; // valeur entree par l'utilisateur
 
@@ -31,7 +32,7 @@ int io_lire_entier(int min, int max) {
 }
 
 // demander le niveau de difficulté de la partie et le nombre de colonnes utilisees
-int io_afficher_menu(void) {
+int afficher_menu(void) {
 
 	int choix; // choix de l'utilisateur
 	int col_min = 2; // nombre de colonnes minimum
@@ -40,13 +41,13 @@ int io_afficher_menu(void) {
 
 	// afficher le menu tant que le choix 4 n'a pas encore ete choisi
 	do {
-		ihm_printf("\n Menu:");
+		ihm_printf("\n MENU:");
 		ihm_printf("\n-------");
 		ihm_printf("\n(%d) Jouer une partie facile", FACILE);
 		ihm_printf("\n(%d) Jouer une partie normale", NORMALE);
 		ihm_printf("\n(%d) Jouer une partie difficile", DIFFICILE);
 		ihm_printf("\n(%d) Quitter", QUITTER);
-		ihm_printf("\nSaisir une valeur entre 1 et 4: ");
+		ihm_printf("\nSaisir une valeur entre %d et %d: ", FACILE, QUITTER);
 		ihm_scanf("%d", &choix);
 
 		switch (choix) {
@@ -64,11 +65,11 @@ int io_afficher_menu(void) {
 			break;
 
 		case 4:
-			// message quitter 
+			ihm_printf("\n\nJeu termine.");
 			break;
 
 		default:
-			// message d'erreur				
+			ihm_printf("\n\nMauvaise valeur, veuillez entrer une valeur entre %d et %d.", FACILE, QUITTER);
 		}
 	} while (choix != QUITTER);
 
@@ -77,7 +78,7 @@ int io_afficher_menu(void) {
 }
 
 // afficher le plateau de jeu
-void io_plateau_afficher(int plateau[], int colonnes) {
+void plateau_afficher(int plateau[], int colonnes) {
 
 	int i;
 

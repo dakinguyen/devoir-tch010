@@ -25,7 +25,7 @@ Le module comporte des fonctions permettant au programme de gérer le plateau de 
 NIM_QUI_COMMENCE
 
 Paramètres: Aucun
-Retour:
+Retour: Retourne 0 ou 1, 0 comme etant l'ordinateur et 1 comme etant le joueur humain
 */
 int nim_qui_commence(void);
 
@@ -40,15 +40,22 @@ void nim_plateau_init(int plateau[], int nb_colonnes);
 /*
 NIM_PLATEAU_SUPPRIMER_COLONNE
 
-Paramètres:
+Paramètres: Le tableau de jeu, le nombre de colonnes et la colonne a supprimer
 Retour: Aucun
 */
-void nim_plateau_supprimer_colonne(int plateau[], int nb_colonnes, int colonne, int nb_pieces);
+void nim_plateau_supprimer_colonne(int plateau[], int *nb_colonnes, int col_a_supprimer);
+
+/*NIM_PLATEAU_DEFRAGMENTER
+
+Paramètres: Le tableau de jeu et le nombre de colonnes
+Retour: Le nombre de colonnes restants
+*/
+int nim_plateau_defragmenter(int plateau[], int *nb_colonnes);
 
 /*
 NIM_JOUER_TOUR
 
-Paramètres:
-Retour:
+Paramètres: Le tableau de jeu, le nombre de colonnes, la colonne jouee et le nombre de pieces dans la colonne
+Retour: Si la tour joue est valide ou non
 */
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces);
