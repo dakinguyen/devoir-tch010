@@ -44,7 +44,7 @@ int nim_plateau_defragmenter(int plateau[], int *nb_colonnes) {
 
 	for (i = 0; i < *nb_colonnes; i++) {
 		if (plateau[i] == 0) {
-			nim_plateau_supprimer_colonne(plateau[*nb_colonnes], *nb_colonnes, i);
+			nim_plateau_supprimer_colonne(plateau, *nb_colonnes, i);
 		}
 		*nb_colonnes = *nb_colonnes - 1;
 	}
