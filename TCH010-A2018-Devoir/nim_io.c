@@ -31,7 +31,7 @@ int lire_entier(int min, int max) {
 	return valeur;
 }
 
-// demander le niveau de difficulté de la partie et le nombre de colonnes utilisees
+// demander le niveau de difficultÃ© de la partie et le nombre de colonnes utilisees
 int afficher_menu(void) {
 
 	int choix; // choix de l'utilisateur
@@ -78,18 +78,18 @@ int afficher_menu(void) {
 }
 
 // afficher le plateau de jeu
-void plateau_afficher(int plateau[], int colonnes) {
+void plateau_afficher(int plateau[], int nb_colonnes) {
 
 	int i;
 
 	// afficher les colonnes
-	for (i = 0; i < colonnes - 1; i++) {
+	for (i = 0; i < nb_colonnes; i++) {
 		ihm_printf("%d ", colonnes);
 	}
 	ihm_printf("\n");
 
 	// afficher le nombre de pieces dans la colonne
-	for (i = 0; i < colonnes - 1; i++) {
+	for (i = 0; i < nb_colonnes; i++) {
 		ihm_printf("%d ", plateau[i]);
 	}
 }
