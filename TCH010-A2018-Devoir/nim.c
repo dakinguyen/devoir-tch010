@@ -28,27 +28,27 @@ void nim_plateau_init(int plateau[], int nb_colonnes) {
 }
 
 // supprimer une colonne du plateau
-void nim_plateau_supprimer_colonne(int plateau[], int *nb_colonnes, int col_a_supprimer) {
+void nim_plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer) {
 
 	int i;
 
-	for (i = col_a_supprimer; i < *nb_colonnes; i++) {
+	for (i = col_a_supprimer; i < nb_colonnes; i++) {
 		plateau[i] = plateau[i + 1];
 	}		
 }
 
 // supprimer les colonnes vides du tableau
-int nim_plateau_defragmenter(int plateau[], int *nb_colonnes) {
+int nim_plateau_defragmenter(int plateau[], int nb_colonnes) {
 	
 	int i;
 
-	for (i = 0; i < *nb_colonnes; i++) {
+	for (i = 0; i < nb_colonnes; i++) {
 		if (plateau[i] == 0) {
-			nim_plateau_supprimer_colonne(plateau, *nb_colonnes, i);
+			nim_plateau_supprimer_colonne(plateau, nb_colonnes, i);
 		}
-		*nb_colonnes = *nb_colonnes - 1;
+		nb_colonnes = nb_colonnes - 1;
 	}
-	return *nb_colonnes;
+	return nb_colonnes;
 }
 
 // valider le choix de l'utilisateur et enlever la piece si elle fonctionne
