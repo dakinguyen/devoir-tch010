@@ -9,6 +9,9 @@
 
 #define PLATEAU_MAX_PIECES 35
 #define PLATEAU_MIN_PIECES 1
+#define FACILE 1 // choix pour faire une partie facile
+#define NORMALE 2 // choix pour faire une partie normale
+#define DIFFICILE 3 // choix pour faire une partie difficile
 
 // determine qui commence a jouer le premier tour aleatoirement
 int nim_qui_commence() {
@@ -51,16 +54,38 @@ int nim_plateau_defragmenter(int plateau[], int nb_colonnes) {
 	return nb_colonnes;
 }
 
-// valider le choix de l'utilisateur et enlever la piece si elle fonctionne
+// valider le choix de l'utilisateur et enlever les pieces si elle fonctionne
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 
 	int valide = 0;
 
-	// si la colonne entree par l'utilisateur existe et que le nombre de piece est bonne, le choix est valide
+	// si la colonne entree par l'utilisateur existe et que le nombre de piece est bonne, le choix est valide et enlever les pieces
 	if (colonne <= nb_colonnes && nb_pieces < plateau[colonne]) {
 		valide = 1;
+		
+		// remove piece?
 	}
 
 	return valide;
 }
 
+// determiner le coup de l'ordinateur
+void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *choix_colonne, int *choix_nb_pieces) {
+
+	if (difficulte == FACILE) {
+
+		nim_choix_ia_aleatoire(plateau[], nb_colonnes, &choix_colonne, &choix_nb_pieces); //brackets stuff 
+	}
+}
+
+// effectuer un coup aleatoire
+void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int *choix_colonne, int *choix_nb_pieces) {
+
+}
+
+// effectuer un coup calcule
+void nim_choix_ia_strategie1(const int plateau[], int nb_colonnes, int *choix_colonne, int *choix_nb_pieces) {
+}
+
+// retourner le nombre de pieces prises par l'ordinateur pour une partie difficile
+int nim_choix_piece_ia(int nb_pieces) {}

@@ -9,16 +9,16 @@ Module qui assure l'interactivité du jeu avec l'usager.
 
 Le module comporte des fonctions permmettant de gérer le jeu, incluant:
 
-- io_demarrer_jeu: Gère le jeu en alternant entre les joueurs.
-- io_lire_entier: Demande à l'usager un entier entre les bornes min et max inclusivement.
-- io_afficher_menu: Demande à l'usager la difficulté et le nombres de colonnes utilisées dans la partie.
-- io_plateau_afficher: Affiche le plateau de jeu à l'écran au fur et à mesure.
-- io_tour_humain: Déclenche le tour de l'usager en lui demandant de choisir la colonne et le nombre de pièces à retirer du plateau.
-- io_tour_ia: Déclenche le tour de l'ordinateur.
+- demarrer_jeu: Gère le jeu en alternant entre les joueurs.
+- lire_entier: Demande à l'usager un entier entre les bornes min et max inclusivement.
+- afficher_menu: Demande à l'usager la difficulté et le nombres de colonnes utilisées dans la partie.
+- plateau_afficher: Affiche le plateau de jeu à l'écran au fur et à mesure.
+- tour_humain: Déclenche le tour de l'usager en lui demandant de choisir la colonne et le nombre de pièces à retirer du plateau.
+- tour_ia: Déclenche le tour de l'ordinateur.
 */
 
 /*
-IO_LIRE_ENTIER
+LIRE_ENTIER
 
 Paramètres: 
 Retour:
@@ -26,7 +26,7 @@ Retour:
 int lire_entier(int min, int max);
 
 /*
-IO_AFFICHER_MENU
+AFFICHER_MENU
 
 Paramètres: Aucun
 Retour:
@@ -34,9 +34,33 @@ Retour:
 int afficher_menu(void);
 
 /*
-IO_PLATEAU_AFFICHER
+PLATEAU_AFFICHER
 
 Paramètres:
 Retour: Aucun
 */
 void plateau_afficher(int plateau[], int colonnes);
+
+/*
+TOUR_HUMAIN
+
+Paramètres:
+Retour: Aucun
+*/
+void tour_humain(int plateau[], int nb_colonnes);
+
+/*
+TOUR_IA
+
+Paramètres:
+Retour: Aucun
+*/
+void tour_ia(int plateau[], int nb_colonnes, double difficulte);
+
+/*
+DEMARRER_JEU
+
+Paramètres:
+Retour: Aucun
+*/
+void demarrer_jeu(double difficulte);

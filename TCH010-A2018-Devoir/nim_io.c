@@ -11,8 +11,6 @@
 #define DIFFICILE 3 // choix pour faire une partie difficile
 #define QUITTER 4 // choix pour quitter le jeu
 
-
-
 // verifier la valeur entree par l'utilisateur
 int lire_entier(int min, int max) {
 
@@ -22,7 +20,7 @@ int lire_entier(int min, int max) {
 	// si la valeur entree par l'utilisateur n'est pas conforme a l'intervalle de valeur demandee, demander d'entrer une autre valeur
 	if (valeur < min || valeur > max) {
 		do {
-			ihm_printf("La valeur entree n'est pas valide, entree une autre valeur: ");
+			ihm_printf("La valeur entree n'est pas valide, entrez une autre valeur: ");
 			ihm_scanf("%d", &valeur);
 
 		} while (valeur < min || valeur > max);
@@ -55,7 +53,6 @@ int afficher_menu(void) {
 		case 1:
 		case 2:
 		case 3:
-			// function that scanf choix to set difficulty (?)
 			ihm_printf("\n\n***** NOUVELLE PARTIE *****");
 			ihm_printf("\nSaisir une valeur entre %d et %d: ", col_min, col_max);
 			nb_colonnes = lire_entier(col_min, col_max);
@@ -73,7 +70,7 @@ int afficher_menu(void) {
 		}
 	} while (choix != QUITTER);
 
-	// return QUITTER->main program : if io_afficher_menu == 4 quit the game(?)
+	return QUITTER; //->main program : if io_afficher_menu == 4 quit the game(?)
 
 }
 
@@ -92,4 +89,33 @@ void plateau_afficher(int plateau[], int nb_colonnes) {
 	for (i = 0; i < nb_colonnes; i++) {
 		ihm_printf("%d ", plateau[i]);
 	}
+}
+
+// declencher le tour de l'humain
+void tour_humain(int plateau[], int nb_colonnes) {
+
+	int choix_colonne; // colonne choisie par l'utilisateur
+	int nb_pieces; // nombre de pieces a retirer
+
+	// demander a l'utilisateur de choisir une colonne
+	ihm_printf("Choisissez une colonne.\n");
+	choix_colonne = ihm_choisir_colonne();
+
+	// demander a l'utilisateur le nombre de pieces a enlever
+	ihm_printf("Entrez le nombre de pieces a enlever: ");
+	ihm_scanf("%d ", nb_pieces);
+
+	// appliquer les changements au plateau
+	nim_jouer_tour(plateau[], nb_colonnes, choix_colonne, nb_pieces); //add thing between brackets
+
+}
+
+// declencer le tour de l'ordinateur
+void tour_ia(int plateau[], int nb_colonnes, double difficulte) {
+
+}
+
+// controler le jeu de nim
+void demarrer_jeu(double difficulte) {
+
 }
