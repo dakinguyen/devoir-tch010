@@ -84,7 +84,7 @@ void plateau_afficher(int plateau[], int nb_colonnes) {
 
 	// afficher les colonnes
 	for (i = 0; i < nb_colonnes; i++) {
-		ihm_printf("%d ", colonnes);
+		ihm_printf("%d ", nb_colonnes);
 	}
 	ihm_printf("\n");
 
