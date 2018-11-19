@@ -65,7 +65,14 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 // determiner le coup de l'ordinateur
 void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *choix_colonne, int *choix_nb_pieces) {
 	
-	int ia_tour=0;
+	/*static int ia_tour;
+
+	if (ia_tour == 1 || ia_tour == 0) {
+
+	}
+	else {
+		ia_tour = 0;
+	}*/
 	
 	if (difficulte == FACILE) {
 
@@ -74,21 +81,16 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *
 
 	if (difficulte == NORMALE) {
 
-		while (/*game not finished*/) {
-			
-			ia_tour = ia_tour % 2;
-
-			if (ia_tour == 0) {
+		/*if (ia_tour == 0) {
 				
-				nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
-			}
-			else {
+			nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
+		}
+		else {
 
-				nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
-			}
-			ia_tour++;
+			nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
 		}
 
+		ia_tour++;*/
 	}
 
 	if (difficulte == DIFFICILE) {
