@@ -6,13 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-#define PLATEAU_MAX_PIECES 35
-#define PLATEAU_MIN_PIECES 1
-#define FACILE 1 // choix pour faire une partie facile
-#define NORMALE 2 // choix pour faire une partie normale
-#define DIFFICILE 3 // choix pour faire une partie difficile
-
 // determine qui commence a jouer le premier tour aleatoirement
 int nim_qui_commence() {
 
@@ -71,10 +64,36 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 
 // determiner le coup de l'ordinateur
 void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *choix_colonne, int *choix_nb_pieces) {
-
+	
+	int ia_tour=0;
+	
 	if (difficulte == FACILE) {
 
-		nim_choix_ia_aleatoire(plateau[], nb_colonnes, &choix_colonne, &choix_nb_pieces); //brackets stuff 
+		nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces); // not sure about les pointeurs, but i think its right
+	}
+
+	if (difficulte == NORMALE) {
+
+		while (/*game not finished*/) {
+			
+			ia_tour = ia_tour % 2;
+
+			if (ia_tour == 0) {
+				
+				nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
+			}
+			else {
+
+				nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
+			}
+			ia_tour++;
+		}
+
+	}
+
+	if (difficulte == DIFFICILE) {
+
+		nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
 	}
 }
 
@@ -88,4 +107,7 @@ void nim_choix_ia_strategie1(const int plateau[], int nb_colonnes, int *choix_co
 }
 
 // retourner le nombre de pieces prises par l'ordinateur pour une partie difficile
-int nim_choix_piece_ia(int nb_pieces) {}
+int nim_choix_piece_ia(int nb_pieces) {
+
+}
+

@@ -6,10 +6,6 @@
 #include "nim_ihm.h"
 #include "nim_io.h"
 
-#define FACILE 1 // choix pour faire une partie facile
-#define NORMALE 2 // choix pour faire une partie normale
-#define DIFFICILE 3 // choix pour faire une partie difficile
-#define QUITTER 4 // choix pour quitter le jeu
 
 // verifier la valeur entree par l'utilisateur
 int lire_entier(int min, int max) {
@@ -106,7 +102,7 @@ void tour_humain(int plateau[], int nb_colonnes) {
 	ihm_scanf("%d ", nb_pieces);
 
 	// appliquer les changements au plateau
-	nim_jouer_tour(plateau[], nb_colonnes, choix_colonne, nb_pieces); //add thing between brackets
+	nim_jouer_tour(plateau, nb_colonnes, choix_colonne, nb_pieces);
 
 }
 
