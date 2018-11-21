@@ -9,7 +9,7 @@
 // determine qui commence a jouer le premier tour aleatoirement
 int nim_qui_commence() {
 
-	return rand() / (RAND_MAX/1.9);
+	return rand() / (RAND_MAX/2 + 1);
 }
 
 // initialiser le plateau de jeu avec un nombre aleatoire de pieces de 1 a 35
