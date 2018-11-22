@@ -9,7 +9,7 @@
 // determine qui commence a jouer le premier tour aleatoirement
 int nim_qui_commence() {
 
-	return rand() / (RAND_MAX/2 + 1);
+	return rand() / (RAND_MAX / 2 + 1);
 }
 
 // initialiser le plateau de jeu avec un nombre aleatoire de pieces de 1 a 35
@@ -65,23 +65,15 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 // determiner le coup de l'ordinateur
 void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *choix_colonne, int *choix_nb_pieces) {
 	
-	/*static int ia_tour;
-
-	if (ia_tour == 1 || ia_tour == 0) {
-
-	}
-	else {
-		ia_tour = 0;
-	}*/
-	
+	ia_tour = rand() / (RAND_MAX / 2 + 1);
 	if (difficulte == FACILE) {
 
 		nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces); // not sure about les pointeurs, but i think its right
 	}
 
 	if (difficulte == NORMALE) {
-
-		/*if (ia_tour == 0) {
+				
+		if (ia_tour == 0) {
 				
 			nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
 		}
@@ -89,8 +81,6 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *
 
 			nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
 		}
-
-		ia_tour++;*/
 	}
 
 	if (difficulte == DIFFICILE) {
