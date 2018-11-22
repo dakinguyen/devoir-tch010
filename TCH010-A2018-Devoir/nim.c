@@ -65,7 +65,7 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 // determiner le coup de l'ordinateur
 void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *choix_colonne, int *choix_nb_pieces) {
 	
-	ia_tour = rand() / (RAND_MAX / 2 + 1);
+	int ia_tour = rand() / (RAND_MAX / 2 + 1);
 	if (difficulte == FACILE) {
 
 		nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces); // not sure about les pointeurs, but i think its right
