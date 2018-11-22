@@ -73,17 +73,14 @@ int afficher_menu(void) {
 // afficher le plateau de jeu
 void plateau_afficher(int plateau[], int nb_colonnes) {
 
-	int i;
+	int i,j;
 
-	// afficher les colonnes
+	// afficher les pieces dans chaque colonne
 	for (i = 0; i < nb_colonnes; i++) {
-		ihm_printf("%d ", nb_colonnes);
-	}
-	ihm_printf("\n");
+		for (j = 0; j < plateau[i]; j++){
+			ihm_ajouter_piece(j, i);
 
-	// afficher le nombre de pieces dans la colonne
-	for (i = 0; i < nb_colonnes; i++) {
-		ihm_printf("%d ", plateau[i]);
+		}
 	}
 }
 
