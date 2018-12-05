@@ -2,7 +2,7 @@
 // Fait le 9 novembre 2018
 // Jeu de Nim
 
-/* 
+/*
 MODULE NIM_IO
 
 Module qui assure l'interactivité du jeu avec l'usager.
@@ -20,7 +20,7 @@ Le module comporte des fonctions permmettant de gérer le jeu, incluant:
 /*
 LIRE_ENTIER
 
-Paramètres: 
+Paramètres:
 Retour:
 */
 int lire_entier(int min, int max);
@@ -31,7 +31,7 @@ AFFICHER_MENU
 Paramètres: Aucun
 Retour:
 */
-int afficher_menu(void);
+void afficher_menu(void);
 
 /*
 PLATEAU_AFFICHER

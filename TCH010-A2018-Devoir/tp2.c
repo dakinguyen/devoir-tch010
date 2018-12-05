@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "nim_ihm.h"
 #include "m_distributions.h"
+#include "nim.h"
+#include "nim_io.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,9 +16,9 @@ int main(int argc, char *argv[])
 		system("pause");
 		return EXIT_FAILURE;
 	}
-	
+
 	ihm_printf("Votre coquille du projet fonctionne convenablement. \n");
-	
+
 	ihm_pause();
 	return 0;
 }
