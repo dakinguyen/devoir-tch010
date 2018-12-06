@@ -5,6 +5,7 @@
 #include "nim.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "m_distributions.h"
 
 // determine qui commence a jouer le premier tour aleatoirement
 int nim_qui_commence() {
