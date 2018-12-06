@@ -1,0 +1,8 @@
+﻿  tp2.c
+  nim_io.c
+  nim_ihm.c
+  nim.c
+  m_distributions.c
+  codage_numerique.c
+  Generating Code...
+curses\addch.obj : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
