@@ -18,7 +18,7 @@ void nim_plateau_init(int plateau[], int nb_colonnes) {
 	int i;
 
 	for (i = 0; i < nb_colonnes; i++) {
-		plateau[i] = 1 + md_randi(PLATEAU_MAX_PIECES + 1); // +1?? bc already a +1 at the start so could go to 36
+		plateau[i] = 1 + md_randi(PLATEAU_MAX_PIECES);
 	}
 
 }
