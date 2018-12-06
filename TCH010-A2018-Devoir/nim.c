@@ -53,9 +53,8 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 	int valide = 0;
 
 	// si la colonne entree par l'utilisateur existe et que le nombre de piece est bonne, le choix est valide et enlever les pieces
-	if (colonne <= nb_colonnes && nb_pieces < plateau[colonne]) {
+	if (colonne < nb_colonnes && nb_pieces <= plateau[colonne]) {
 		valide = 1;
-
 		plateau[colonne] -= nb_pieces;
 	}
 
