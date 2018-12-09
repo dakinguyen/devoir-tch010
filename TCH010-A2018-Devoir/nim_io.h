@@ -19,23 +19,22 @@ Le module comporte des fonctions permmettant de gérer le jeu, incluant:
 
 /*
 LIRE_ENTIER
-permet de lire et valider un entier entre. cette valeur doit se
-retrouver entre les bornes du min et du max inclusivement.
+Demande à l'usager de saisir un entier entre les bornes min et max
+(inclusivement). La fonction doit valider la saisie et redemander à l'usager
+de saisir une valeur jusqu'à l'obtention d'une valeur satisfaisante.
 
 Paramètres:
-- borne inferieure
-- borne superieure
-Retour: 
-- valeur qui se retrouve dans les bornes
+- min (entier): borne inferieure
+- max (entier): borne superieure
+Retour: (entier) Une valeur qui se retrouve dans les bornes
 */
 int lire_entier(int min, int max);
 
 /*
 AFFICHER_MENU
-affiche un menu qui demande a l'utilisateur le niveau de difficulte 
-a laquelle il veut jouer. avec ce menu, selon la difficulte 
-selectionnee, il peut jouer au jeu de nim.
-
+Demande à l'utilisateur le niveau de difficulté de la partie et le nombre de
+colonne dans le jeu. Ce programme démarre le jeu avec le bon
+niveau de difficulté et le nombre de colonne.
 
 Paramètres: Aucun
 Retour: Aucun
@@ -44,45 +43,58 @@ void afficher_menu(void);
 
 /*
 PLATEAU_AFFICHER
-affiche la plateau de jeu.
+Affiche la configuration du plateau à l'écran. Elle affiche chacune des
+colonnes en mettant une pièce par ligne, selon le nombre de pièces présentes
+dans la colonne en question.
 
 Paramètres: 
-- tableau de jeu
-- le nombre de colonne que le tableau contient
+- plateau[] (entier): tableau de jeu
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 Retour: Aucun
 */
-void plateau_afficher(int plateau[], int colonnes);
+void plateau_afficher(int plateau[], int nb_colonnes);
 
 /*
 TOUR_HUMAIN
-joue le tour humain.
+Déclenche le tour de l'humain en demandant à l'usager de choisir la colonne
+(appel à ihm_choisir_colonne) et le nombre de pièces à retirer du plateau de
+jeu. Une fois le choix effectué, la fonction doit faire appel à
+nim_jouer_tour pour appliquer les changements au plateau.
 
 Paramètres:
-- tableau de jeu
-- le nombre de colonnes que le tableau contient
+- plateau[] (entier): tableau de jeu
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 Retour: Aucun
 */
 void tour_humain(int plateau[], int nb_colonnes);
 
 /*
 TOUR_IA
-joue le tour de l'ordinateur.
+Déclenche le tour de l'ordinateur. Pour connaitre le choix de l'ordinateur,
+on fait appel à la fonction nim_choix_ia.
+Une fois le choix effectué, la fonction doit faire appel à nim_jouer_tour
+pour appliquer les changements au plateau.
 
 Paramètres:
-- tableau de jeu
-- nombre de colonnes que le tableau contient
-- niveau de difficulte
+- plateau[] (entier): tableau de jeu
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
+- difficulte (entier): niveau de difficulte
 Retour: Aucun
 */
 void tour_ia(int plateau[], int nb_colonnes, double difficulte);
 
 /*
 DEMARRER_JEU
-demarre le jeu et permet a l'utilisateur de jouer en choisissant la
-difficulte desiree.
+Fonction qui contrôle le jeu de nim: elle donne la main, tour à tour, à
+chacun des deux joueurs et déclare le gagnant une fois la partie terminée.
+On quitte cette fonction quand la partie est terminée.
+Pour donner la main aux joueurs, on appelle les fonctions tour_humain et
+tour_ia. Après chaque tour, cette fonction se charge de défragmenter le
+plateau de jeu, de modifier la taille du plateau à l'écran et d'afficher la
+nouvelle configuration du plateau de jeu.
 
 Paramètres:
-- niveau de difficulte
+- difficulte (entier): niveau de difficulte
 Retour: Aucun
 */
 void demarrer_jeu(double difficulte);
