@@ -3,8 +3,8 @@
 // Jeu de Nim
 
 #include <stdlib.h>
+#include "m_distributions.h"
 #include "nim_ihm.h"
-#include "nim.h"
 #include "nim_io.h"
 
 int main(int argc, char *argv[])
