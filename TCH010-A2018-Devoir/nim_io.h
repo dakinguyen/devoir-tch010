@@ -22,8 +22,11 @@ LIRE_ENTIER
 permet de lire et valider un entier entre. cette valeur doit se
 retrouver entre les bornes du min et du max inclusivement.
 
-Paramètres: La borne minimale et la borne maximale
-Retour: Une valeur qui se retrouve dans les bornes
+Paramètres:
+- borne inferieure
+- borne superieure
+Retour: 
+- valeur qui se retrouve dans les bornes
 */
 int lire_entier(int min, int max);
 
@@ -43,31 +46,43 @@ void afficher_menu(void);
 PLATEAU_AFFICHER
 affiche la plateau de jeu.
 
-Paramètres: Le tableau de jeu et le nombre de colonne que celui-ci contient
+Paramètres: 
+- tableau de jeu
+- le nombre de colonne que le tableau contient
 Retour: Aucun
 */
 void plateau_afficher(int plateau[], int colonnes);
 
 /*
 TOUR_HUMAIN
+joue le tour humain.
 
-Paramètres: Le tableau de jeu et le nombre de colonnes que celui-ci contient
+Paramètres:
+- tableau de jeu
+- le nombre de colonnes que le tableau contient
 Retour: Aucun
 */
 void tour_humain(int plateau[], int nb_colonnes);
 
 /*
 TOUR_IA
+joue le tour de l'ordinateur.
 
-Paramètres: Le tableau de jeu, le nombre de colonnes que celui-ci contient et le niveau de difficulte
+Paramètres:
+- tableau de jeu
+- nombre de colonnes que le tableau contient
+- niveau de difficulte
 Retour: Aucun
 */
 void tour_ia(int plateau[], int nb_colonnes, double difficulte);
 
 /*
 DEMARRER_JEU
+demarre le jeu et permet a l'utilisateur de jouer en choisissant la
+difficulte desiree.
 
-Paramètres: Le niveau de difficulte
+Paramètres:
+- niveau de difficulte
 Retour: Aucun
 */
 void demarrer_jeu(double difficulte);
