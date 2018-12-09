@@ -1,5 +1,22 @@
 ﻿  m_distributions.c
+  nim.c
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(72): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(72): warning C4024: 'nim_choix_ia_aleatoire': different types for formal and actual parameter 3
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(72): warning C4024: 'nim_choix_ia_aleatoire': different types for formal and actual parameter 4
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(79): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(79): warning C4024: 'nim_choix_ia_aleatoire': different types for formal and actual parameter 3
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(79): warning C4024: 'nim_choix_ia_aleatoire': different types for formal and actual parameter 4
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(83): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(83): warning C4024: 'nim_choix_ia_strategie1': different types for formal and actual parameter 3
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(83): warning C4024: 'nim_choix_ia_strategie1': different types for formal and actual parameter 4
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(89): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(89): warning C4024: 'nim_choix_ia_strategie1': different types for formal and actual parameter 3
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(89): warning C4024: 'nim_choix_ia_strategie1': different types for formal and actual parameter 4
   nim_ihm.c
+  nim_io.c
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim_io.c(128): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim_io.c(128): warning C4024: 'nim_choix_ia': different types for formal and actual parameter 2
   tp2.c
-  Génération de code en cours...
-  TCH010-A2018-Devoir.vcxproj -> U:\tch010\devoir\ProjetDepart\Debug\TCH010-A2018-Devoir.exe
+  Generating Code...
+c:\users\sara\source\repos\dakinguyen\devoir-tch010\tch010-a2018-devoir\nim.c(154): warning C4715: 'nim_choix_piece_ia': not all control paths return a value
+  TCH010-A2018-Devoir.vcxproj -> C:\Users\Sara\Source\Repos\dakinguyen\devoir-tch010\Debug\TCH010-A2018-Devoir.exe

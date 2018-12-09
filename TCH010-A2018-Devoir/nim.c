@@ -19,7 +19,7 @@ void nim_plateau_init(int plateau[], int nb_colonnes) {
 	int i;
 
 	for (i = 0; i < nb_colonnes; i++) {
-		plateau[i] = 1 + md_randi(PLATEAU_MAX_PIECES);
+		plateau[i] = md_randi(PLATEAU_MAX_PIECES);
 	}
 
 }
@@ -42,8 +42,8 @@ int nim_plateau_defragmenter(int plateau[], int nb_colonnes) {
 	for (i = 0; i < nb_colonnes; i++) {
 		if (plateau[i] == 0) {
 			nim_plateau_supprimer_colonne(plateau, nb_colonnes, i);
+			nb_colonnes = nb_colonnes - 1;
 		}
-		nb_colonnes = nb_colonnes - 1;
 	}
 	return nb_colonnes;
 }
@@ -57,8 +57,8 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 	if (colonne < nb_colonnes && nb_pieces <= plateau[colonne]) {
 		valide = 1;
 		plateau[colonne] -= nb_pieces;
-	}
 
+	}
 	return valide;
 }
 
@@ -69,24 +69,24 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *
 
 	if (difficulte == FACILE) {
 
-		nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces); // not sure about les pointeurs, but i think its right
+		nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 	}
 
 	if (difficulte == NORMALE) {
 
 		if (ia_tour == 0) {
 
-			nim_choix_ia_aleatoire(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
+			nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 		}
 		else {
 
-			nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
+			nim_choix_ia_strategie1(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 		}
 	}
 
 	if (difficulte == DIFFICILE) {
 
-		nim_choix_ia_strategie1(plateau, nb_colonnes, *choix_colonne, *choix_nb_pieces);
+		nim_choix_ia_strategie1(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 	}
 }
 
@@ -107,11 +107,10 @@ void nim_choix_ia_strategie1(const int plateau[], int nb_colonnes, int *choix_co
 	int i;
 
 	// trouver la colonne ayant le plus de pieces
-	*choix_colonne = 0;
 
-	for (i = 1; i < nb_colonnes; i++) {
-		
-		if (plateau[i] > plateau[*choix_colonne]) {
+	for (i = 0; i < nb_colonnes; i++) {
+
+		if (plateau[0] > plateau[*choix_colonne]) {
 
 			*choix_colonne = i;
 		}

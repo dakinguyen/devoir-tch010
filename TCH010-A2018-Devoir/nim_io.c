@@ -75,6 +75,7 @@ void afficher_menu(void) {
 
 			ihm_printf("\n\nJeu termine.");
 			break;
+
 			// si l'utilisateur entre une valeur invalide, montrer un message d'erreur
 		default:
 
@@ -111,27 +112,85 @@ void tour_humain(int plateau[], int nb_colonnes) {
 
 	// demander a l'utilisateur le nombre de pieces a enlever
 	ihm_printf("Entrez le nombre de pieces a enlever: ");
-	ihm_scanf("%d", &choix_nb_pieces);
+	choix_nb_pieces = lire_entier(PLATEAU_MIN_PIECES, plateau[choix_colonne]);
 
 	// appliquer les changements au plateau
 	nim_jouer_tour(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
-
 }
 
 
 // declencer le tour de l'ordinateur
 void tour_ia(int plateau[], int nb_colonnes, double difficulte) {
 
-	int choix_colonne; // colonne choisie par l'ordinateur
-	int choix_nb_pieces; // nombre de pieces a retirer
+	int choix_colonne = 0; // colonne choisie par l'ordinateur
+	int choix_nb_pieces = 0; // nombre de pieces a retirer
 
-	nim_choix_ia(plateau, &nb_colonnes, difficulte, &choix_colonne, &choix_nb_pieces);
+	nim_choix_ia(plateau, nb_colonnes, difficulte, &choix_colonne, &choix_nb_pieces);
 
 	// appliquer les changements au plateau
+	ihm_printf("\ncolonne : %d --- pieces : %d\n", choix_colonne, choix_nb_pieces);
 	nim_jouer_tour(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 }
 
 // controler le jeu de nim
 void demarrer_jeu(double difficulte) {
+
+	int nb_colonnes; // nombre de colonnes actuel
+	int plateau_jeu[NB_COLONNE_MAX]; // plateau vide avec nombre de colonne maximal
+	int joueur_actuel; // joueur actuel
+
+	ihm_effacer_ecran();
+
+	ihm_printf("Vous commencez une nouvelle partie! :)\n");
+
+	ihm_printf("Entrez le nombre de colonnes desire entre %d et %d: ", NB_COLONNE_MIN, NB_COLONNE_MAX);
+	nb_colonnes = lire_entier(NB_COLONNE_MIN, NB_COLONNE_MAX);
+
+	nim_plateau_init(plateau_jeu, nb_colonnes);
+
+
+	ihm_changer_taille_plateau(PLATEAU_MAX_PIECES, nb_colonnes);
+	plateau_afficher(plateau_jeu, nb_colonnes);
+
+	joueur_actuel = nim_qui_commence();
+
+	if (joueur_actuel == 0) {
+		ihm_printf("Le IA commence.\n");
+	}
+	else {
+		ihm_printf("Vous commencez. \n");
+	}
+
+	while (nb_colonnes != 0) {
+		if (joueur_actuel == 1) {
+			tour_humain(plateau_jeu, nb_colonnes);
+		}
+		else {
+			tour_ia(plateau_jeu, nb_colonnes, difficulte);
+		}
+
+		nb_colonnes = nim_plateau_defragmenter(plateau_jeu, nb_colonnes);
+
+		if (nb_colonnes != 0) {
+			if (joueur_actuel == 1) {
+				joueur_actuel = 0;
+			}
+			else {
+				joueur_actuel = 1;
+			}
+		}
+
+		ihm_changer_taille_plateau(PLATEAU_MAX_PIECES, nb_colonnes);
+		plateau_afficher(plateau_jeu, nb_colonnes);
+	}
+
+	if (joueur_actuel == 1) {
+		ihm_printf("\nL'ordinateur a gagne :(\n\n");
+	}
+	else {
+		ihm_printf("Vous avez gagne XD\n\n");
+	}
+
+	ihm_pause();
 
 }

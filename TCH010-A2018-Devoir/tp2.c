@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	ihm_printf("Votre coquille du projet fonctionne convenablement. \n");
+	afficher_menu();
 
 	ihm_pause();
 	return 0;

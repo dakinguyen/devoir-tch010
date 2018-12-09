@@ -5,6 +5,8 @@
 // Declaration des constantes
 #define PLATEAU_MAX_PIECES 35
 #define PLATEAU_MIN_PIECES 1
+#define NB_COLONNE_MIN 2
+#define NB_COLONNE_MAX 20
 #define FACILE 1 // choix pour faire une partie facile
 #define NORMALE 2 // choix pour faire une partie normale
 #define DIFFICILE 3 // choix pour faire une partie difficile
