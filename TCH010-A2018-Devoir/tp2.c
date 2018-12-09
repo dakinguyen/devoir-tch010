@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
+	// afficher le menu pour commencer une partie
 	afficher_menu();
 
 	ihm_pause();

@@ -11,7 +11,7 @@ Le module comporte des fonctions permmettant de gérer le jeu, incluant:
 
 - demarrer_jeu: Gère le jeu en alternant entre les joueurs.
 - lire_entier: Demande à l'usager un entier entre les bornes min et max inclusivement.
-- afficher_menu: Demande à l'usager la difficulté et le nombres de colonnes utilisées dans la partie.
+- afficher_menu: Demande à l'usager la difficulté du jeu.
 - plateau_afficher: Affiche le plateau de jeu à l'écran au fur et à mesure.
 - tour_humain: Déclenche le tour de l'usager en lui demandant de choisir la colonne et le nombre de pièces à retirer du plateau.
 - tour_ia: Déclenche le tour de l'ordinateur.
@@ -32,9 +32,8 @@ int lire_entier(int min, int max);
 
 /*
 AFFICHER_MENU
-Demande à l'utilisateur le niveau de difficulté de la partie et le nombre de
-colonne dans le jeu. Ce programme démarre le jeu avec le bon
-niveau de difficulté et le nombre de colonne.
+Demande à l'utilisateur le niveau de difficulté de la partie. Ce programme démarre le jeu avec le bon
+niveau de difficulté.
 
 Paramètres: Aucun
 Retour: Aucun
@@ -85,6 +84,7 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte);
 
 /*
 DEMARRER_JEU
+Demande a l'utilisateur le nombre de colonnes dans le jeu et affiche le nouveau plateau.
 Fonction qui contrôle le jeu de nim: elle donne la main, tour à tour, à
 chacun des deux joueurs et déclare le gagnant une fois la partie terminée.
 On quitte cette fonction quand la partie est terminée.

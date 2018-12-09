@@ -29,8 +29,6 @@ int lire_entier(int min, int max) {
 void afficher_menu(void) {
 
 	int choix; // choix de l'utilisateur
-	int col_min = 2; // nombre de colonnes minimum
-	int col_max = 20; // nombre de colonnes maximum
 
 	// afficher le menu tant que le choix 4 n'a pas encore ete choisi
 	do {
@@ -144,15 +142,17 @@ void demarrer_jeu(double difficulte) {
 
 	ihm_printf("Vous commencez une nouvelle partie! :)\n");
 
+	// demander le nombre de colonnes 
 	ihm_printf("Entrez le nombre de colonnes desire entre %d et %d: ", NB_COLONNE_MIN, NB_COLONNE_MAX);
 	nb_colonnes = lire_entier(NB_COLONNE_MIN, NB_COLONNE_MAX);
 
 	nim_plateau_init(plateau_jeu, nb_colonnes);
 
-
+	// afficher le nouveau plateau de jeu
 	ihm_changer_taille_plateau(PLATEAU_MAX_PIECES, nb_colonnes);
 	plateau_afficher(plateau_jeu, nb_colonnes);
 
+	// decider et afficher celui qui commence
 	joueur_actuel = nim_qui_commence();
 
 	if (joueur_actuel == 0) {
@@ -162,6 +162,7 @@ void demarrer_jeu(double difficulte) {
 		ihm_printf("Vous commencez. \n");
 	}
 
+	// tant qu'il reste des colonnes, alterner les joueurs et changer le plateau de jeu a chaque coup
 	while (nb_colonnes != 0) {
 		if (joueur_actuel == 1) {
 			tour_humain(plateau_jeu, nb_colonnes);
@@ -185,6 +186,7 @@ void demarrer_jeu(double difficulte) {
 		plateau_afficher(plateau_jeu, nb_colonnes);
 	}
 
+	// afficher le gagnant
 	if (joueur_actuel == 1) {
 		ihm_printf("\nL'ordinateur a gagne :(\n\n");
 	}
