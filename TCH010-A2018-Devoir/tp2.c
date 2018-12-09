@@ -4,7 +4,6 @@
 
 #include <stdlib.h>
 #include "nim_ihm.h"
-#include "m_distributions.h"
 #include "nim.h"
 #include "nim_io.h"
 
@@ -22,4 +21,5 @@ int main(int argc, char *argv[])
 
 	ihm_pause();
 	return 0;
+
 }

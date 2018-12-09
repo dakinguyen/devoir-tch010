@@ -1,3 +1,2 @@
-﻿  nim.c
-c:\users\dat quang\desktop\devoir tch010\tch010-a2018-devoir\nim.c(153): warning C4715: 'nim_choix_piece_ia': not all control paths return a value
-  TCH010-A2018-Devoir.vcxproj -> C:\Users\Dat Quang\Desktop\devoir tch010\Debug\TCH010-A2018-Devoir.exe
+﻿  nim_io.c
+  TCH010-A2018-Devoir.vcxproj -> C:\Users\Sara\Source\Repos\dakinguyen\devoir-tch010\Debug\TCH010-A2018-Devoir.exe

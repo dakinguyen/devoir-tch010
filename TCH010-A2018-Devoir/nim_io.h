@@ -2,6 +2,16 @@
 // Fait le 9 novembre 2018
 // Jeu de Nim
 
+// Declaration des constantes
+#define NB_COLONNE_MIN 2
+#define NB_COLONNE_MAX 20
+#define PLATEAU_MIN_PIECES 1
+#define JOUEUR_HUMAIN 0
+#define JOUEUR_IA 1
+
+#include "nim.h"
+#include "nim_ihm.h"
+
 /*
 MODULE NIM_IO
 
@@ -46,7 +56,7 @@ Affiche la configuration du plateau à l'écran. Elle affiche chacune des
 colonnes en mettant une pièce par ligne, selon le nombre de pièces présentes
 dans la colonne en question.
 
-Paramètres: 
+Paramètres:
 - plateau[] (entier): tableau de jeu
 - nb_colonnes (entier): nombre de colonnes que le tableau contient
 Retour: Aucun

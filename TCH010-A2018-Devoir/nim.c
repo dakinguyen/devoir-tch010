@@ -3,9 +3,6 @@
 // Jeu de Nim
 
 #include "nim.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include "m_distributions.h"
 
 // determine qui commence a jouer le premier tour aleatoirement
 int nim_qui_commence() {
@@ -19,9 +16,10 @@ void nim_plateau_init(int plateau[], int nb_colonnes) {
 	int i;
 
 	for (i = 0; i < nb_colonnes; i++) {
-		plateau[i] = md_randi(PLATEAU_MAX_PIECES);
-	}
 
+		plateau[i] = md_randi(PLATEAU_MAX_PIECES);
+
+	}
 }
 
 // supprimer une colonne du plateau
@@ -30,7 +28,9 @@ void nim_plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_sup
 	int i;
 
 	for (i = col_a_supprimer; i < nb_colonnes; i++) {
+
 		plateau[i] = plateau[i + 1];
+
 	}
 }
 
@@ -40,11 +40,15 @@ int nim_plateau_defragmenter(int plateau[], int nb_colonnes) {
 	int i;
 
 	for (i = 0; i < nb_colonnes; i++) {
+
 		if (plateau[i] == 0) {
+
 			nim_plateau_supprimer_colonne(plateau, nb_colonnes, i);
 			nb_colonnes = nb_colonnes - 1;
+
 		}
 	}
+
 	return nb_colonnes;
 }
 
@@ -55,10 +59,12 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces) {
 
 	// si la colonne entree par l'utilisateur existe et que le nombre de piece est bonne, le choix est valide et enlever les pieces
 	if (colonne < nb_colonnes && nb_pieces <= plateau[colonne]) {
+
 		valide = 1;
 		plateau[colonne] -= nb_pieces;
 
 	}
+
 	return valide;
 }
 
@@ -70,6 +76,7 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *
 	if (difficulte == FACILE) {
 
 		nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
+
 	}
 
 	if (difficulte == NORMALE) {
@@ -77,16 +84,19 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *
 		if (ia_tour == 0) {
 
 			nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
+
 		}
 		else {
 
 			nim_choix_ia_strategie1(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
+
 		}
 	}
 
 	if (difficulte == DIFFICILE) {
 
 		nim_choix_ia_strategie1(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
+
 	}
 }
 
@@ -108,11 +118,13 @@ void nim_choix_ia_strategie1(const int plateau[], int nb_colonnes, int *choix_co
 
 	// trouver la colonne ayant le plus de pieces
 	*choix_colonne = 0;
+
 	for (i = 0; i < nb_colonnes; i++) {
 
 		if (plateau[i] > plateau[*choix_colonne]) {
 
 			*choix_colonne = i;
+
 		}
 	}
 
@@ -147,8 +159,6 @@ int nim_choix_piece_ia(int nb_pieces) {
 			return nb_fibonacci[i - 1];
 
 		}
-
 	}
-
 }
 

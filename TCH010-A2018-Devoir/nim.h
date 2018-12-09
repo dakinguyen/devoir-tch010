@@ -3,15 +3,14 @@
 // Jeu de Nim
 
 // Declaration des constantes
-#define PLATEAU_MAX_PIECES 35
-#define PLATEAU_MIN_PIECES 1
-#define NB_COLONNE_MIN 2
-#define NB_COLONNE_MAX 20
+#define PLATEAU_MAX_PIECES 35 // nombre maximum
 #define FACILE 1 // choix pour faire une partie facile
 #define NORMALE 2 // choix pour faire une partie normale
 #define DIFFICILE 3 // choix pour faire une partie difficile
 #define QUITTER 4 // choix pour quitter la partie
 #define NB_FIBO 9 // nombre de nombres utilises dans la suite de fibonacci
+
+#include "m_distributions.h"
 
 /*
 MODULE NIM
@@ -49,7 +48,7 @@ aléatoire de pièces entre 1 et PLATEAU_MAX_PIECES=35.
 
 Paramètres:
 - plateau[] (entier): le tableau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 Retour: Aucun
 */
 void nim_plateau_init(int plateau[], int nb_colonnes);
@@ -62,7 +61,7 @@ vers la gauche.
 
 Paramètres:
 - plateau[] (entier): le tableau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 - col_a_supprimer (entier): la colonne a supprimer
 Retour: Aucun
 */
@@ -74,7 +73,7 @@ nim_plateau_supprimer_colonne. Le nombre de colonnes restant est retourné.
 
 Paramètres:
 - plateau[] (entier): le tableau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 Retour: Le nombre de colonnes restants
 */
 int nim_plateau_defragmenter(int plateau[], int nb_colonnes);
@@ -91,7 +90,7 @@ dans la colonne en question.
 
 Paramètres:
 - plateau[] (entier): le tableau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 - colonne (entier): la colonne jouee
 - nb_pieces (entier): le nombre de pieces choisies dans la colonne
 Retour: Si le tour joue est valide (1) ou non(0)
@@ -114,10 +113,10 @@ nim_choix_ia_strategie1 pour choisir son coup.
 
 Paramètres:
 - plateau (entier): le plateau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 - difficulte (flottant double): le nombre representant la difficulte choisie par l'utilisateur (facile = 1, normale = 2, difficile = 3)
-- *choix_colonne (entier): pointeur vers la variable du choix de colonne
-- *choix_nb_pieces (entier): pointeur vers la variable du choix du nombre de pieces
+- *choix_colonne (entier): pointeur vers le parametre du choix de colonne
+- *choix_nb_pieces (entier): pointeur vers le parametre du choix du nombre de pieces
 Retour: Aucun
 */
 void nim_choix_ia(const int plateau[], int nb_colonnes, double difficulte, int *choix_colonne, int *choix_nb_pieces);
@@ -129,7 +128,7 @@ colonne, puis au hasard le nombre de pièces à jouer de cette colonne.
 
 Paramètres:
 - plateau (entier): le plateau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 - *choix_colonne (entier): pointeur vers le parametre du choix de colonne
 - *choix_nb_pieces (entier): pointeur vers le parametre du choix du nombre de pieces
 Retour: Aucun
@@ -146,7 +145,7 @@ nombre de pièces qu'elle y prendra.
 
 Paramètres:
 - plateau (entier): le plateau de jeu
-- nb_colonnes (entier): le nombre de colonnes
+- nb_colonnes (entier): nombre de colonnes que le tableau contient
 - *choix_colonne (entier): pointeur vers le parametre du choix de colonne
 - *choix_nb_pieces (entier): pointeur vers le parametre du choix du nombre de pieces
 Retour: Aucun
