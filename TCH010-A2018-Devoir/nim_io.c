@@ -129,6 +129,7 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte) {
 
 	// appliquer les changements au plateau
 	ihm_printf("\ncolonne : %d --- pieces : %d\n", choix_colonne, choix_nb_pieces);
+	ihm_pause();
 	nim_jouer_tour(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 }
 

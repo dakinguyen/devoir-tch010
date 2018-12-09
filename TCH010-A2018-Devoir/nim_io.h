@@ -19,24 +19,31 @@ Le module comporte des fonctions permmettant de gérer le jeu, incluant:
 
 /*
 LIRE_ENTIER
+permet de lire et valider un entier entre. cette valeur doit se
+retrouver entre les bornes du min et du max inclusivement.
 
-Paramètres:
-Retour:
+Paramètres: La borne minimale et la borne maximale
+Retour: Une valeur qui se retrouve dans les bornes
 */
 int lire_entier(int min, int max);
 
 /*
 AFFICHER_MENU
+affiche un menu qui demande a l'utilisateur le niveau de difficulte 
+a laquelle il veut jouer. avec ce menu, selon la difficulte 
+selectionnee, il peut jouer au jeu de nim.
+
 
 Paramètres: Aucun
-Retour:
+Retour: Aucun
 */
 void afficher_menu(void);
 
 /*
 PLATEAU_AFFICHER
+affiche la plateau de jeu.
 
-Paramètres:
+Paramètres: Le tableau de jeu et le nombre de colonne que celui-ci contient
 Retour: Aucun
 */
 void plateau_afficher(int plateau[], int colonnes);
@@ -44,7 +51,7 @@ void plateau_afficher(int plateau[], int colonnes);
 /*
 TOUR_HUMAIN
 
-Paramètres:
+Paramètres: Le tableau de jeu et le nombre de colonnes que celui-ci contient
 Retour: Aucun
 */
 void tour_humain(int plateau[], int nb_colonnes);
@@ -52,7 +59,7 @@ void tour_humain(int plateau[], int nb_colonnes);
 /*
 TOUR_IA
 
-Paramètres:
+Paramètres: Le tableau de jeu, le nombre de colonnes que celui-ci contient et le niveau de difficulte
 Retour: Aucun
 */
 void tour_ia(int plateau[], int nb_colonnes, double difficulte);
@@ -60,7 +67,7 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte);
 /*
 DEMARRER_JEU
 
-Paramètres:
+Paramètres: Le niveau de difficulte
 Retour: Aucun
 */
 void demarrer_jeu(double difficulte);

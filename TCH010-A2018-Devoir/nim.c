@@ -107,10 +107,10 @@ void nim_choix_ia_strategie1(const int plateau[], int nb_colonnes, int *choix_co
 	int i;
 
 	// trouver la colonne ayant le plus de pieces
-
+	*choix_colonne = 0;
 	for (i = 0; i < nb_colonnes; i++) {
 
-		if (plateau[0] > plateau[*choix_colonne]) {
+		if (plateau[i] > plateau[*choix_colonne]) {
 
 			*choix_colonne = i;
 		}
